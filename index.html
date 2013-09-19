@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>Puls3</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/estilos.css">
+
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+<body>
+
+  <script type="text/x-handlebars">
+   <header>
+            <figure id="header_logo">
+                <a href=""><img src="img/logo.png" alt="logo"></a>
+            </figure>
+            <div id="header_titulo">
+                <h2>Puls3 - Dolor Sit amet</h2>
+                <nav>
+                    <ul>
+                        <a href=""><li>Home</li></a>
+                        <a href="https://github.com/agreencow/puls3"><li>GitHub</li></a>
+                    </ul>
+                </nav>
+            </div>
+            <figure id="header_user">
+               <a href=""><img src="img/user.jpg"></a> 
+            </figure>
+        </header>   
+
+    <section id="contenido">
+      {{outlet}}
+    </section>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="index">
+   <!-- item -->
+    {{#each model}}
+            
+            <article class="contenido_item">
+                <figure>
+                    <a href="#"><img {{bindAttr src="img"}}></a>
+                </figure>
+                <div class="item_info">
+                    <h2>{{title}}</h2>
+                   {{#link-to 'post' this}} <p class="item_posted">Posted by  {{author.name}}</p>{{/link-to}}
+                    <span aria-hidden="true" class="icon-heart-2"></span>
+                </div>
+                <div class="item_extra">
+                    <p class ="extra_tag">tagname</p>
+                    <div class="extra_likes">
+                        <a class="likes_up" href="#"><span aria-hidden="true" class="icon-arrow-up"></span></a>
+                        <div class="likes_numero">{{votes}}</div>
+                        <a class="likes_down" href="#"><span aria-hidden="true" class="icon-arrow-down"></span></a>
+                    </div>
+                </div>
+            </article>
+           
+    {{/each}}
+    
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="post">
+   <!-- item -->
+    
+            
+            <article class="contenido_item extended">
+                <figure>
+                    <a href="#"><img {{bindAttr src="img"}}></a>
+                </figure>
+                <div class="item_info">
+                    <h2>{{title}}</h2>
+                   {{#link-to 'post' this}} <p class="item_posted">Posted by  {{author.name}}</p>{{/link-to}}
+                    <span aria-hidden="true" class="icon-heart-2"></span>
+                    <p>{{body}}</p>
+                </div>
+                <div class="item_extra">
+                    <p class ="extra_tag">tagname</p>
+                    <div class="extra_likes">
+                        <a class="likes_up" href="#" {{action "voteUp" }}><span aria-hidden="true" class="icon-arrow-up"></span></a>
+                        <div class="likes_numero">{{votes}}</div>
+                        <a class="likes_down" href="#" {{action "voteDown" }}><span aria-hidden="true" class="icon-arrow-down"></span></button>
+                    </div>
+                </div>
+            </article>  
+  </script>
+
+  <script src="js/libs/jquery-1.9.1.js"></script>
+  <script src="js/libs/handlebars-1.0.0.js"></script>
+  <script src="js/libs/ember-1.0.0.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
