@@ -23,12 +23,12 @@
                 <h2>Puls3 - Dolor Sit amet</h2>
                 <nav>
                     <ul>
-                        <a href=""><li>Home</li></a>
+                       <li> {{#linkTo 'index'}}Home{{/linkTo}} </li>
                         <a href="https://github.com/agreencow/puls3"><li>GitHub</li></a>
                     </ul>
                 </nav>
             </div>
-            <figure id="header_user">
+            <figure id="header_user" >
                <a href=""><img src="img/user.jpg"></a> 
             </figure>
         </header>   
@@ -38,7 +38,7 @@
     </section>
   </script>
 
-  <script type="text/x-handlebars" data-template-name="index">
+  <script type="text/x-handlebars" data-template-name="posts">
    <!-- item -->
     {{#each model}}
             
@@ -57,6 +57,32 @@
                         <a class="likes_up" href="#"><span aria-hidden="true" class="icon-arrow-up"></span></a>
                         <div class="likes_numero">{{votes}}</div>
                         <a class="likes_down" href="#"><span aria-hidden="true" class="icon-arrow-down"></span></a>
+                    </div>
+                </div>
+            </article>
+           
+    {{/each}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="index">
+   <!-- item -->
+    {{#each model}}
+            
+            <article class="contenido_item">
+                <figure>
+                    <a href="#"><img {{bindAttr src="img"}}></a>
+                </figure>
+                <div class="item_info">
+                    <h2>{{title}}</h2>
+                   {{#link-to 'post' this}} <p class="item_posted">Posted by  {{author.name}}</p>{{/link-to}}
+                    <span aria-hidden="true" class="icon-heart-2"></span>
+                </div>
+                <div class="item_extra">
+                    <p class ="extra_tag">tagname</p>
+                    <div class="extra_likes">
+                        <a class="likes_up" href="#"><span aria-hidden="true" class="icon-arrow-up" {{action "voteUp" this}}></span></a>
+                        <div class="likes_numero">{{votes}}</div>
+                        <a class="likes_down" href="#" {{action "voteDown" this }}><span aria-hidden="true" class="icon-arrow-down"></span></a>
                     </div>
                 </div>
             </article>
@@ -84,7 +110,7 @@
                     <div class="extra_likes">
                         <a class="likes_up" href="#" {{action "voteUp" }}><span aria-hidden="true" class="icon-arrow-up"></span></a>
                         <div class="likes_numero">{{votes}}</div>
-                        <a class="likes_down" href="#" {{action "voteDown" }}><span aria-hidden="true" class="icon-arrow-down"></span></button>
+                        <a class="likes_down" href="#" {{action "voteDown" }}><span aria-hidden="true" class="icon-arrow-down"></span></a>
                     </div>
                 </div>
             </article>  
