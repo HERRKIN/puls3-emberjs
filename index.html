@@ -24,7 +24,7 @@
                 <nav>
                     <ul>
                        <li> {{#linkTo 'index'}}Home{{/linkTo}} </li>
-                        <a href="https://github.com/agreencow/puls3"><li>GitHub</li></a>
+                        <a href="https://github.com/herrkin/puls3-emberjs"><li>GitHub</li></a>
                     </ul>
                 </nav>
             </div>
@@ -49,8 +49,8 @@
                     <a href="#"><img {{bindAttr src="img"}}></a>
                 </figure>
                 <div class="item_info">
-                    <h2>{{title}}</h2>
-                   {{#link-to 'post' this}} <p class="item_posted">Posted by  {{author.name}}</p>{{/link-to}}
+                   {{#link-to 'post' this}}  <h2>{{title}}</h2>
+                   <p class="item_posted">Posted by  {{author.name}}</p>{{/link-to}}
                     <span aria-hidden="true" class="icon-heart-2"></span>
                 </div>
                 <div class="item_extra">
